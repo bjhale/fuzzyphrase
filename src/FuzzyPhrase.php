@@ -9,15 +9,34 @@ class FuzzyPhrase
 
     private $debug;
     
-    public function __construct($debug = false)
+    public function __construct(array $options = [], $debug = false)
     {
-        $this->dict = pspell_new('en','american',null,null,PSPELL_FAST);
 
-        $this->debug = $debug;
+        $defaultOptions = [
+            'language_code' => 'en',
+            'spelling_code' => 'american',
+            'jargon' => null,
+            'encoding' => null,
+            'mode' => PSPELL_FAST,
+            'debug' => false,
+        ];
+
+        $options = array_merge($defaultOptions,$options);
+
+        $this->debug = $options['debug'];
+
+        $this->dict = pspell_new(
+            $options['language_code'],
+            $options['spelling_code'],
+            $options['jargon'],
+            $options['encoding'],
+            $options['mode']
+        );
+
     }
 
     /**
-     * 
+     *
      *
      * @param $word
      * @return $this

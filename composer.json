@@ -1,0 +1,19 @@
+{
+    "name": "bjhale/fuzzyphrase",
+    "description": "Corrects spelling in a phrase utilizing pspell and other processing.",
+    "require": {
+        "php": ">=5.3.27",
+        "ext-pspell": "^0.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Billy Hale",
+            "email": "bjhale@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {"bjhale\\FuzzyPhrase\\" : "src/" }
+    }
+}
